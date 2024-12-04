@@ -1,0 +1,157 @@
+
+.button 
+    display: inline-block
+    color: #270773
+    text-align: center
+    text-transform: uppercase
+    text-decoration: none
+    position: relative
+    font-weight: 900
+    line-height: 83%
+    font-size: size(43)
+    letter-spacing: size(-2.15)
+    filter: drop-shadow(0px size(17) size(32,6) rgba(16, 0, 51, 0.45))
+    +up-xxl
+        font-size: size(43, $xxl)
+        letter-spacing: size(-2.15, $xxl)
+        filter: drop-shadow(0px size(17, $xxl) size(32.6, $xxl) rgba(16, 0, 51, 0.45))
+    +md
+        font-size: size(43, $md)
+        letter-spacing: size(-2.15, $md)
+        filter: drop-shadow(0px size(17, $md) size(32.6, $md) rgba(16, 0, 51, 0.45))
+    +sm
+        font-size: size(30, $sm)
+        letter-spacing: size(-1.5, $sm)
+        filter: drop-shadow(0px size(17, $sm) size(32.6, $sm) rgba(16, 0, 51, 0.45))
+    .button__main-text
+        display: block
+        font-style: normal
+        transform: skewX(-12deg)
+    &__main 
+        height: size(115.76)
+        width: size(505)
+        display: flex
+        align-items: center
+        background-color: #00FFC2
+        clip-path: polygon(size(44) 0, calc(100% - size(44)) 0, 100% 50%, calc(100% - size(44)) 100%, size(44) 100%, 0 50%)
+        transition: background-color 0.2s
+        position: relative
+        z-index: 3
+        line-height: 100%
+        
+        justify-content: center
+        +up-xxl
+            height: size(115.76, $xxl)
+            width: size(505, $xxl)
+            clip-path: polygon(size(44, $xxl) 0, calc(100% - size(44, $xxl)) 0, 100% 50%, calc(100% - size(44, $xxl)) 100%, size(44, $xxl) 100%, 0 50%)
+        +md
+            height: size(115.76, $md)
+            width: size(505, $md)
+            clip-path: polygon(size(44, $md) 0, calc(100% - size(44, $md)) 0, 100% 50%, calc(100% - size(44, $md)) 100%, size(44, $md) 100%, 0 50%)
+        +sm
+            height: size(73.76, $sm)
+            width: size(322, $sm)
+            clip-path: polygon(size(27, $sm) 0, calc(100% - size(27, $sm)) 0, 100% 50%, calc(100% - size(27, $sm)) 100%, size(27, $sm) 100%, 0 50%)
+        .button__l, .button__r span 
+            transition: background-color .2s
+    .button__l
+        position: absolute
+        top: 0
+        bottom: 0
+        left: size(-90)
+        width: size(200)
+        transition: transform .4s var(--bubble-transition)
+        transform: translateX(100%)
+        +up-xxl
+            left: size(-90, $xxl)
+            width: size(200, $xxl)
+        +md
+            left: size(-90, $md)
+            width: size(200, $md)
+        +sm
+            left: size(-90, $sm)
+            width: size(200, $sm)
+        span
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            background-color: #00FFC2
+            opacity: 0.1
+            clip-path: polygon(size(44) 0, calc(100% - size(44)) 0, 100% 50%, calc(100% - size(44)) 100%, size(44) 100%, 0 50%)
+            +up-xxl
+                clip-path: polygon(size(44, $xxl) 0, calc(100% - size(44, $xxl)) 0, 100% 50%, calc(100% - size(44, $xxl)) 100%, size(44, $xxl) 100%, 0 50%)
+            +md
+                clip-path: polygon(size(44, $md) 0, calc(100% - size(44, $md)) 0, 100% 50%, calc(100% - size(44, $md)) 100%, size(44, $md) 100%, 0 50%)
+            +sm
+                clip-path: polygon(size(27, $sm) 0, calc(100% - size(27, $sm)) 0, 100% 50%, calc(100% - size(27, $sm)) 100%, size(27, $sm) 100%, 0 50%)
+            &:nth-child(1)
+                z-index: 0
+            &:nth-child(2)
+                z-index: 2
+                left: size(30)
+                +up-xxl
+                    left: size(30, $xxl)
+                +md
+                    left: size(30, $md)
+                +sm
+                    left: size(30, $sm)
+            &:nth-child(3)
+                z-index: 3
+                left: size(60)
+                +up-xxl
+                    left: size(60, $xxl)
+                +md
+                    left: size(60, $md)
+                +sm
+                    left: size(60, $sm)
+    .button__r
+        position: absolute
+        top: 0
+        bottom: 0
+        right: size(-90)
+        width: size(200)
+        transition: transform .4s var(--bubble-transition)
+        transform: translateX(-100%)
+        +up-xxl
+            right: size(-90, $xxl)
+            width: size(200, $xxl)
+        +md
+            right: size(-90, $md)
+            width: size(200, $md)
+        span
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            background-color: #00FFC2
+            opacity: 0.1
+            clip-path: polygon(size(44) 0, calc(100% - size(44)) 0, 100% 50%, calc(100% - size(44)) 100%, size(44) 100%, 0 50%)
+            +up-xxl
+                clip-path: polygon(size(44, $xxl) 0, calc(100% - size(44, $xxl)) 0, 100% 50%, calc(100% - size(44, $xxl)) 100%, size(44, $xxl) 100%, 0 50%)
+            +md
+                clip-path: polygon(size(44, $md) 0, calc(100% - size(44, $md)) 0, 100% 50%, calc(100% - size(44, $md)) 100%, size(44, $md) 100%, 0 50%)
+            &:nth-child(1)
+                z-index: 0
+            &:nth-child(2)
+                z-index: 2
+                right: size(30)
+                +up-xxl
+                    right: size(30, $xxl)
+                +md
+                    right: size(30, $md)
+            &:nth-child(3)
+                z-index: 3
+                right: size(60)
+                +up-xxl
+                    right: size(60, $xxl)
+                +md
+                    right: size(60, $md)
+    +hover
+        &:hover
+            .button__l,
+            .button__r
+                transform: translateX(0)
+        

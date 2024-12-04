@@ -1,0 +1,102 @@
+@use 'sass:math'
+@mixin r($width)
+    @media only screen and (max-width: $width)
+        @content
+@mixin rh($height)
+    @media only screen and (max-height: $height)
+        @content
+@mixin xxl
+    @media (max-width: 1919px)
+        @content
+@mixin up-xxl
+    @media (min-width: 1920px)
+        @content
+@mixin lg
+    @media (max-width: 1379px)
+        @content
+@mixin md
+    @media (max-width: 979px)
+        @content
+@mixin sm
+    @media (max-width: 639px)
+        @content
+@mixin xs
+    @media (max-width: 330px)
+        @content
+@mixin hover
+    @media (hover: hover)
+        @content
+@mixin touch
+    @media (hover: none) and (pointer: coarse)
+        @content
+@mixin tc
+    transition-property: color,background-color,border-color,fill,stroke,-webkit-text-decoration-color
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke
+    transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,-webkit-text-decoration-color
+    transition-timing-function: cubic-bezier(.4,0,.2,1)
+    transition-duration: 150ms
+@mixin sc
+    &::-webkit-scrollbar
+        width: 4px
+    &::-webkit-scrollbar-thumb
+       width: 4px
+       background-color: var(--greyb2)
+       border-radius: 3px
+    &::-webkit-scrollbar-track
+        width: 4px
+@mixin cover
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+@mixin tsh
+    transition-property: box-shadow
+    transition-timing-function: cubic-bezier(.4,0,.2,1)
+    transition-duration: 150ms
+@mixin s
+    box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.08), 0px 4px 6px -2px rgba(0, 0, 0, 0.03)
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $display: swap)
+    @font-face
+        font-family: #{$font-family}
+        font-weight: #{$weight}
+        font-style: #{$style}
+        font-display: #{$display}
+        src: url('#{$file-path}.woff2') format('woff2')
+
+
+// Fluid fonts
+// See https://habr.com/post/310186/
+// Also check _layout.sass, fix for Safari is required
+
+@function strip-unit($number)
+    @if type-of($number) == 'number' and not unitless($number)
+        @return $number / ($number * 0 + 1)
+    @return $number
+@function calcFluidFontSize($f-min, $f-max, $w-min, $w-max, $units: px)
+    $f-min: strip-unit($f-min)
+    $f-max: strip-unit($f-max)
+    $w-min: strip-unit($w-min)
+    $w-max: strip-unit($w-max)
+
+    $k: ($f-max - $f-min)/($w-max - $w-min)
+    $b: $f-min - $k * $w-min
+
+    $b: $b + $units
+
+    @return calc( #{$k} * 100vw + #{$b} )
+
+@mixin fluidFontSize($f-min, $f-max, $w-min, $w-max, $fallback: false)
+    font-size: $f-min
+    @media (min-width: $w-min)
+        @if ($fallback)
+            font-size: $fallback
+        font-size: calcFluidFontSize($f-min, $f-max, $w-min, $w-max, px)
+    @media (min-width: $w-max)
+        font-size: $f-max
+
+@function size($target, $vw: 1920)
+    @return math.div($target, $vw) * 100vw
+@function sizevh($target, $vw: 1057)
+    @return math.div($target, $vw) * 100vh

@@ -1,0 +1,464 @@
+// Comment out the following line (import normalize) if you are using Tailwind CSS (since it already has its own normalize built in)!
+// @import "./normalize"
+@use 'sass:math'
+@import "./vars"
+@import "./mixins"
+@import "./m-other"
+@import "./fonts"
+@import "./sprite_generated"
+@import "../libs/@splidejs/splide/dist/css/splide-core.min.css"
+// From libs:
+//@import "../libs/LIB_NAME/path/to/style.scss"
+  
+* 
+    box-sizing: border-box
+    // min-height: 0.001vw; // — Fixes Safari bug with viewport units in calc()
+:root
+    --bubble-transition: cubic-bezier(0.34, 1.56, 0.64, 1)
+.splide__list
+    will-change: transform
+body
+    font-family: "Montserrat", sans-serif
+    font-optical-sizing: auto
+    width: 100%
+    height: 100%
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    background-color: #141225
+    min-width: 320px
+    color: #fff
+
+.main-content-bg
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: -1
+    img
+        width: 100%
+        height: 100%
+        object-position: center
+        object-fit: cover
+.main-content
+    position: relative
+    z-index: 2
+    min-height: 100svh
+    overflow: hidden
+    display: flex
+    +md
+        flex-direction: column-reverse
+        padding-top: size(110, $md)
+        gap: size(40, $md)
+    +sm
+        flex-direction: column-reverse
+        padding-top: size(110, $sm)
+        gap: size(40, $sm)
+.main-content__col
+    flex: 1 1 0%
+    +md
+        width: 100%
+        flex: none
+
+//RIGHT CONTENT
+.main-content__col-content-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: center
+    font-family: "Teko", sans-serif
+    font-optical-sizing: auto
+    +md
+        flex: 1 1 0%
+.main-content__col-content
+    display: flex
+    flex-direction: column
+    gap: size(41)
+    padding-left: size(109)
+    +lg
+        gap: size(41, $lg)
+        padding-left: size(109, $lg) 
+    +md
+        padding-left: 0
+        gap: size(32, $md)
+    +sm
+        padding-left: 0
+        gap: size(32, $sm)
+.main-content__col-content-text-area
+    text-transform: uppercase
+    font-weight: 700
+    display: flex
+    flex-direction: column
+    gap: size(10)
+    transform: skewX(-12deg)
+    --trs: .5s
+    +lg
+        gap: size(10, $lg)
+    +md
+        text-align: center
+        gap: size(10, $md)
+    +sm
+        text-align: center
+        gap: size(10, $sm)
+    .text-1
+        line-height: 76%
+        text-shadow: 0px 0px size(27.077) rgba(0, 0, 0, 0.30)
+        letter-spacing: size(-3.5)
+        font-size: size(70)
+        margin-left: size(-10)
+        transform: translateX(50%)
+        opacity: 0
+        transition: transform var(--trs) linear, opacity var(--trs) linear
+        +lg
+            text-shadow: 0px 0px size(27.077, $lg) rgba(0, 0, 0, 0.30)
+            letter-spacing: size(-3.5, $lg)
+            font-size: size(70, $lg)
+            margin-left: size(-10, $lg)
+        +md
+            text-shadow: 0px 0px size(27.077, $md) rgba(0, 0, 0, 0.30)
+            letter-spacing: size(-3.5, $md)
+            font-size: size(70, $md)
+            margin-left: size(-10, $md)
+        +sm
+            text-shadow: 0px 0px size(27.077, $sm) rgba(0, 0, 0, 0.30)
+            letter-spacing: size(-2.5, $sm)
+            font-size: size(50, $sm)
+            margin-left: size(-10, $sm)
+    .text-2
+        color: #00FFC2
+        text-shadow: 0px size(37) size(29.8) rgba(16, 16, 57, 0.70)
+        line-height: 76%
+        position: relative
+        z-index: 2
+        letter-spacing: size(-8)
+        font-size: size(160)
+        margin-top: size(-5)
+        transform: translateX(50%)
+        opacity: 0
+        transition: transform var(--trs) linear, opacity var(--trs) linear
+        +lg
+            text-shadow: 0px size(37, $lg) size(29.8, $lg) rgba(16, 16, 57, 0.70)
+            letter-spacing: size(-8, $lg)
+            font-size: size(160, $lg)
+            margin-top: size(-5, $lg)
+        +md
+            text-shadow: 0px size(37, $md) size(29.8, $md) rgba(16, 16, 57, 0.70)
+            letter-spacing: size(-8, $md)
+            font-size: size(160, $md)
+            margin-top: size(-5, $md)
+        +sm
+            text-shadow: 0px size(24, $sm) size(17.7, $sm) rgba(16, 16, 57, 0.70)
+            letter-spacing: size(-5.5, $sm)
+            font-size: size(110, $sm)
+            margin-top: size(-10, $sm)
+    .text-3
+        line-height: 76%
+        text-shadow: 0px 0px size(27.077) rgba(0, 0, 0, 0.30)
+        letter-spacing: size(-3.5)
+        font-size: size(70)
+        padding-left: size(20)
+        margin-top: size(-18)
+        transform: translateX(50%)
+        opacity: 0
+        transition: transform var(--trs) linear, opacity var(--trs) linear
+        +lg
+            text-shadow: 0px 0px size(27.077, $lg) rgba(0, 0, 0, 0.30)
+            letter-spacing: size(-3.5, $lg)
+            font-size: size(70, $lg)
+            padding-left: size(20, $lg)
+            margin-top: size(-18, $lg)
+        +md
+            text-shadow: 0px 0px size(27.077, $md) rgba(0, 0, 0, 0.30)
+            letter-spacing: size(-3.5, $md)
+            font-size: size(70, $md)
+            padding-left: size(20, $md)
+            margin-top: size(-18, $md)
+        +sm
+            text-shadow: 0px 0px size(27.077, $sm) rgba(0, 0, 0, 0.30)
+            letter-spacing: size(-2.5, $sm)
+            font-size: size(50, $sm)
+            padding-left: size(20, $sm)
+            margin-top: size(-18, $sm)
+.is-loaded
+    .main-content__col-content-text-area
+        .text-1
+            transform: translateX(0)
+            opacity: 1
+        .text-2
+            transform: translateX(0)
+            opacity: 1
+            transition-delay: .2s
+        .text-3
+            transform: translateX(0)
+            opacity: 1
+            transition-delay: .4s
+    .btn-wrap
+        opacity: 1
+        transition-delay: 1s
+.btn-wrap
+    --trs: .5s
+    display: block
+    width: size(431)
+    height: size(84)
+    border-radius: size(42.5)
+    background-color: #270773
+    position: relative
+    transition: background-color .4s ease-in-out
+    cursor: pointer
+    opacity: 0
+    transition: opacity var(--trs) linear
+    +lg
+        width: size(431, $lg)
+        height: size(84, $lg)
+        border-radius: size(42.5, $lg)
+    +md
+        width: size(431, $md)
+        height: size(84, $md)
+        border-radius: size(42.5, $md)
+        margin-left: auto
+        margin-right: auto
+    +sm
+        width: size(273, $sm)
+        height: size(53, $sm)
+        border-radius: size(42.5, $sm)
+        margin-left: auto
+        margin-right: auto
+    &::after
+        content: ''
+        position: absolute
+        border-radius: 100%
+        top: 50%
+        margin-top: size(-29)
+        right: size(28)
+        width: size(58)
+        height: size(58)
+        background-color: #00FFC2
+        transition: background-color .4s ease-in-out, transform .4s var(--bubble-transition)
+        +lg
+            margin-top: size(-29, $lg)
+            right: size(28, $lg)
+            width: size(58, $lg)
+            height: size(58, $lg)
+        +md
+            margin-top: size(-29, $md)
+            right: size(28, $md)
+            width: size(58, $md)
+            height: size(58, $md)
+        +sm
+            margin-top: size(-18, $sm)
+            right: size(15, $sm)
+            width: size(36, $sm)
+            height: size(36, $sm)
+    // @media (hover: none) and (pointer: coarse)
+    //     background-color: #00FFC2
+    //     &::after
+    //         background-color: #270773
+    //         transform: translateX(calc((size(431) - size(58) - (size(28) * 2))) * - 1)
+    //     .text-locked
+    //         transform: translateX(30%)
+    //         opacity: 0
+            
+    //     .text-unlocked
+    //         transform: translateX(0)
+    //         opacity: 1
+    &.is-activated
+        background-color: #00FFC2
+        &::after
+            background-color: #270773
+            transform: translateX(calc((size(431) - size(58) - (size(28) * 2))) * - 1)
+            +lg
+                transform: translateX(calc((size(431, $lg) - size(58, $lg) - (size(28, $lg) * 2))) * - 1)
+            +md
+                transform: translateX(calc((size(431, $md) - size(58, $md) - (size(28, $md) * 2))) * - 1)
+            +sm
+                transform: translateX(calc((size(273, $sm) - size(36, $sm) - (size(15, $sm) * 2))) * - 1)
+        .text-locked
+            transform: translateX(30%)
+            opacity: 0
+            
+        .text-unlocked
+            transform: translateX(0)
+            opacity: 1
+.btn-wrap__text 
+    font-size: size(58)
+    font-weight: 700
+    text-transform: uppercase
+    position: relative
+    height: 100%
+    display: block
+    margin: 0 size(28)
+    +lg
+        font-size: size(58, $lg)
+        margin: 0 size(28, $lg)
+    +md
+        font-size: size(58, $md)
+        margin: 0 size(28, $md)
+    +sm
+        font-size: size(34, $sm)
+        margin: 0 size(15, $sm)
+.text-locked
+    color: #00FFC2
+    position: absolute
+    left: 0
+    top: size(3)
+    transition: transform .4s var(--bubble-transition), opacity .4s ease-in-out
+    +lg
+        top: size(3, $lg)
+    +md
+        top: size(3, $md)
+    +sm
+        top: size(4, $sm)
+        left: size(6, $sm)
+.text-unlocked
+    color: #270773
+    position: absolute
+    right: 0
+    top: size(3)
+    transform: translateX(-30%)
+    opacity: 0
+    transition: transform .4s var(--bubble-transition), opacity .4s linear
+    +lg
+        top: size(3, $lg)
+    +md
+        top: size(3, $md)
+    +sm
+        top: size(4, $sm)
+        right: size(6, $sm)
+//RIGHT CONTENT
+
+
+//LEFT CONTENT
+.main-content__col-sliders
+    display: flex
+    +md
+        flex-direction: column
+    .main-content__col-sliders__col
+        flex: 1 1 0%
+        +md
+            flex: none
+            width: 100%
+.splide__slide
+    height: size(427)
+    +lg
+        height: size(400, $lg)
+    +md
+        height: size(168, 550)
+        width: size(185, 550)
+    +sm
+        height: size(168, $sm)
+        width: size(185, $sm)
+.skin-slide-item
+    background-image: url('../images/slide-bg.svg')
+    background-repeat: no-repeat
+    background-position: left bottom
+    background-size: cover
+    height: 100%
+    position: relative
+    overflow: hidden
+.skin-slide-item__bg
+    margin-left: auto
+    margin-right: auto
+    position: relative
+    z-index: 2
+    width: size(301)
+    height: size(307)
+    margin-top: size(5.82)
+    margin-bottom: size(20)
+    +lg
+        width: size(301, $lg)
+        height: size(307, $lg)
+        margin-top: size(5.82, $lg)
+        margin-bottom: size(20, $lg)
+    +md
+        width: size(118, 550)
+        height: size(117, 550)
+        margin-top: size(13, 550)
+        margin-bottom: size(-4, 550)
+    +sm
+        width: size(118, $sm)
+        height: size(117, $sm)
+        margin-top: size(13, $sm)
+        margin-bottom: size(-4, $sm)
+    .skin-slide-item__bg-inner
+        background-image: url('../images/skin-bg.svg')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 100% 100%
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        z-index: -1
+        +md
+            transform: rotate(90deg)
+    img
+        max-width: none
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        top: size(45.9)
+        width: size(281)
+        height: size(276)
+        +lg
+            top: size(45.9, $lg)
+            width: size(281, $lg)
+            height: size(276, $lg)
+        +md
+            top: size(7, 550)
+            width: size(111, 550)
+            height: size(109, 550)
+        +sm
+            top: size(7, $sm)
+            width: size(111, $sm)
+            height: size(109, $sm)
+.skins-splide-right
+    .skin-slide-item__bg
+        margin-top: size(51.74)
+        margin-bottom: size(-61.74)
+        +lg
+            margin-top: size(51.74, $lg)
+            margin-bottom: size(-61.74, $lg)
+        +md
+            margin-top: size(13, 550)
+            margin-bottom: size(-4, 550)
+        +sm
+            margin-top: size(13, $sm)
+            margin-bottom: size(-4, $sm)
+        .skin-slide-item__bg-inner
+            transform: rotate(-180deg)
+            +md
+                transform: rotate(-90deg)
+        img
+            top: size(-32)
+            +lg
+                top: size(-32, $lg)
+            +md
+                top: size(7, 550)
+            +sm
+                top: size(7, $sm)
+.skin-slide-item__info 
+    text-align: center
+    text-transform: uppercase
+    font-weight: 600
+    position: relative
+    z-index: 5
+    .text-1
+        line-height: 100%
+        font-size: size(21)
+        +lg
+            font-size: size(21, $lg)
+        +md
+            font-size: size(9, 550)
+        +sm
+            font-size: size(9, $sm)
+    .text-2
+        color: #00FFC2
+        line-height: 150%
+        font-size: size(21)
+        +lg
+           font-size: size(21, $lg) 
+        +md
+           font-size: size(9, 550) 
+        +sm
+            font-size: size(9, $sm)
+//LEFT CONTENT

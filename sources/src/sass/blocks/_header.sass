@@ -1,0 +1,34 @@
+.header
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    z-index: 10
+    display: flex
+    padding-top: size(27)
+    +lg
+        padding-top: size(27, $lg)
+    +md
+        padding-top: size(30, $md)
+        flex-direction: column
+    +sm
+        padding-top: size(30, $sm)
+    .header-col
+        flex: 1 1 0%
+        +md
+            flex: none
+            width: 100%
+    .logo
+        margin-left: size(109)
+        width: size(253)
+        +lg
+            margin-left: size(109, $lg)
+            width: size(253, $lg)
+        +md
+            margin-left: auto
+            margin-right: auto
+            width: size(198, $md)
+        +sm
+            width: size(198, $sm)
+        img
+            width: 100%

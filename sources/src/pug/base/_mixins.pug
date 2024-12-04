@@ -1,0 +1,67 @@
+//- If your mixin requires the ability to add classes, id and other attributes to some element inside, add "&attributes(attributes)" to that element. 
+//- Only works for a single element. There are examples below.
+mixin icon(name,width)
+    if !width
+        span(class="icon svg-image-" + name)&attributes(attributes)
+    else
+        span(class="icon svg-image-" + name style="width:" + width + "px")&attributes(attributes)
+
+
+mixin use(name,width,height)
+    svg(width=width height=height viewBox="0 0 "+ width +" "+ height).icon&attributes(attributes)
+        use(xlink:href="images/sprites/main.stack.svg#image-" + name)
+
+
+mixin picture(name,ext,x2)
+    if !x2
+        picture.picture.object-fit-cover&attributes(attributes)
+            source.object-fit-cover(srcset="images/" + name + ".webp" type="image/webp")
+            img.picture__img.object-fit-cover(src="images/" + name + "." + ext alt="")
+    else
+        picture.picture.object-fit-cover&attributes(attributes)
+            source.object-fit-cover(srcset="images/" + name + ".webp, images/" + name + "@2x.webp 2x" type="image/webp")
+            img.picture__img.object-fit-cover(src="images/" + name + "." + ext srcset="images/" + name + "." + ext + ", images/" + name + "@2x." + ext + " 2x" alt="")
+mixin pictureM(name,name2,ext)
+    picture
+        source(media="(max-width: 767px)" srcset="images/" + name2 + ".webp, images/" + name2 + ".webp 2x" type="image/webp")
+        source(media="(min-width: 768px)" srcset="images/" + name + ".webp, images/" + name + ".webp 2x" type="image/webp")
+        img(src="images/" + name + "." + ext srcset="images/" + name + "." + ext + ", images/" + name + "." + ext + " 2x" alt="") 
+mixin pictureMSvg(name,name2,ext)
+    picture
+        source(media="(max-width: 979px)" srcset="images/" + name2 + ".svg")
+        source(media="(min-width: 980px)" srcset="images/" + name + ".svg")
+        img(src="images/" + name + "." + ext srcset="images/" + name + "." + ext alt="") 
+
+mixin breadcrumbs(arr,cur)
+    .b-breadcrumbs&attributes(attributes)
+        .container
+            each v in arr
+                a(href="#").b-breadcrumbs__link=v
+            if cur!=''
+                span.b-breadcrumbs__text=cur
+
+
+
+mixin pagination(amount, current, ellipsis, last, arrows)
+    .pagination&attributes(attributes)
+        if (arrows === true)
+            a(href="#").pagination__prev: span
+
+        ul.pagination__list
+            - for (var index = 1; index <= amount; index++)
+                    if (index === current)
+                        li.pagination__item.current
+                            span= index
+                    else if (index === ellipsis)
+                        li.pagination__item
+                            a(href="#").is-collapsed ...
+                    else
+                        li.pagination__item
+                            a(href="#")= index
+
+            - for (var index = last; index <= last; index++)
+                    li.pagination__item
+                        a(href="#")= index
+
+        if (arrows === true)
+            a(href="#").pagination__next: span

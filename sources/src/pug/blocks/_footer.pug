@@ -1,0 +1,46 @@
+footer.footer
+  .container 
+    .footer__wrap 
+      .footer__main 
+        .footer__copy 
+          .footer__logo 
+            +use('logo',65,60)
+          | Skin.Club © 2024
+        .footer__info 
+          p You can get your favorite skin at the best prices.
+            | <br> All trades work in the automatic mode via Steam bots.
+        .footer__about
+          p Moontain Limited (HE410299) 13 Kypranoros street, 
+            | <br> EVI Building, 2nd floor, flat/office 205, 1061, Nicosia, Cyprus.
+      .footer__second
+        .footer__box 
+          .footer__payment 
+            .footer__payment-image
+              img(src="images/payments/visa.svg", alt="")
+            .footer__payment-image
+              img(src="images/payments/mastercard.svg", alt="")
+            .footer__payment-image
+              +picture('payments/trustly','png','2x')
+            .footer__payment-image
+              +picture('payments/visa-secure','jpg','2x')
+            .footer__payment-image
+              img(src="images/payments/maestro.svg", alt="")
+            .footer__payment-image
+              +picture('payments/mastercard-id-check','png','2x')
+          ul.footer__links
+            li.footer__links-item
+              a.footer__link(href="mailto:help@skin.club") 
+                +use('mail',19,14)
+                |help@skin.club
+            li.footer__links-item
+              a.footer__link(href="https://skin.club/en/faq") 
+                +use('faq',14,14)
+                |FAQ
+        nav.footer-menu 
+          ul.footer-menu__list 
+            li.footer-menu__item 
+              a.footer-menu__link(href="https://skin.club/en/tos") Terms of service 
+            li.footer-menu__item 
+              a.footer-menu__link(href="https://skin.club/en/privacy") Privacy policy
+            li.footer-menu__item 
+              a.footer-menu__link(href="https://skin.club/en/contacts") Contacts

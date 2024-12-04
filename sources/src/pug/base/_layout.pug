@@ -1,0 +1,120 @@
+include _vars
+include _mixins
+doctype html
+html(lang="en")
+    head
+        block head
+            title Skin.Club Daily Free Cases
+        
+        meta(charset="utf-8")
+        meta(name="keywords" content="")
+        meta(name="description" content="Our players are already winning!")
+
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="format-detection" content="telephone=no")
+
+        link(rel="shortcut icon" href="images/favicons/favicon.ico" type="image/x-icon")
+        link(rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png")
+        link(rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png")
+        link(rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png")
+        link(rel="icon" type="image/png" sizes="96x96" href="images/favicons/android-chrome-96x96.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png")
+        link(rel="manifest" href="images/favicons/manifest.webmanifest")
+        meta(name="msapplication-TileColor" content="#ffffff")
+        meta(name="msapplication-TileImage" content="images/favicons/mstile-144x144.png")
+        meta(name="msapplication-config" content="images/favicons/browserconfig.xml")
+        meta(name="theme-color" content="#ffffff")
+
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap", rel="stylesheet")
+
+        
+        link(rel="stylesheet" href="css/main.min.css")
+
+    body
+        
+        .wrapper
+            .main-content-bg
+                picture
+                    source(media="(max-width: 979px)" srcset="images/bg-mobile.webp" type="image/webp")
+                    source(media="(min-width: 980px)" srcset="images/bg.webp" type="image/webp")
+                    img(src="images/bg.webp" alt="decor" width="898" height="898")
+            block header
+                include ../blocks/_header
+
+            block main
+                include ../blocks/_main
+
+            block footer
+                include ../blocks/_footer
+        //- <div class="cookies-policy-banner" data-v-ca644d7a="">
+        //-     <div class="cookies-policy-banner__inner-wrapper" data-v-ca644d7a="">
+        //-     <div class="cookies-policy-banner__text-block" data-v-ca644d7a="">
+        //-         <div class="icon-wrap" data-v-ca644d7a=""><img data-v-ca644d7a="" src="./images/cookies/icon-cookie.webp" alt="Cookie banner icon" width="85" height="100"></div>
+        //-         <div class="text" data-v-ca644d7a="">
+        //-         <div class="title" data-v-ca644d7a="">Accept Cookies?</div>
+        //-         <p data-v-ca644d7a="">Our website uses cookies to improve your experience and to analyze the use of our website. By clicking "Accept" or continuing to browse the site, you agree to our use of cookies, according to our  <a data-v-ca644d7a="" href="https://skin.club/en/cookie-policy">Cookie Policy</a></p>
+        //-         </div>
+        //-     </div>
+        //-     <div class="cookies-policy-banner__button-block" data-v-ca644d7a="">
+        //-         <button class="button-wrapper button accept-cookie-button" data-v-37cc08f2="" data-v-ca644d7a="">
+        //-         <span class="button__content" data-v-ca644d7a="">Accept <i class="check-icon" data-v-ca644d7a=""></i></span>
+        //-         </button>
+        //-     </div>
+        //-     </div>
+        //- </div>
+        //- script.
+        //-     // Set default consent to 'denied' as a placeholder
+        //-     // Determine actual values based on your own requirements
+        //-     gtag('consent', 'default', {
+        //-         'ad_storage': 'denied',
+        //-         'ad_user_data': 'denied',
+        //-         'ad_personalization': 'denied',
+        //-         'analytics_storage': 'denied'
+        //-     });
+        
+        //- script.
+        //-     function consentGrantedAdStorage() {
+        //-         gtag('consent', 'update', {
+        //-         'ad_storage': 'granted',
+        //-         });
+        //-     }
+        //-     function consentGrantedAdUserData() {
+        //-         gtag('consent', 'update', {
+        //-         'ad_user_data': 'granted'
+        //-         });
+        //-     }
+        //-     function consentGrantedAdPersonalization() {
+        //-         gtag('consent', 'update', {
+        //-         'ad_personalization': 'granted'
+        //-         });
+        //-     }
+        //-     function consentGrantedAnalyticsStorage() {
+        //-         gtag('consent', 'update', {
+        //-         'analytics_storage': 'granted'
+        //-         });
+        //-     }
+
+        //-     document.querySelector('.accept-cookie-button').addEventListener('click', function(e) {
+        //-         e.preventDefault();
+        //-         document.cookie = "cookiesAccepted=true;max-age=31536000;path=/";
+        //-         document.querySelector('.cookies-policy-banner').remove();
+        //-         consentGrantedAdStorage();
+        //-         consentGrantedAdUserData();
+        //-         consentGrantedAdPersonalization();
+        //-         consentGrantedAnalyticsStorage();
+        //-     });
+
+        //-     let matches = document.cookie.match(new RegExp("(?:^|; )" + 'cookiesAccepted'.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+        //-     if (matches && matches[1] === 'true') {
+        //-         document.querySelector('.cookies-policy-banner').remove();
+        //-         consentGrantedAdStorage();
+        //-         consentGrantedAdUserData();
+        //-         consentGrantedAdPersonalization();
+        //-         consentGrantedAnalyticsStorage();
+        //-     }
+        block js
+            script(src="js/main.min.js" defer)
